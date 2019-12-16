@@ -1,6 +1,6 @@
 <?php
 
-namespace Fico7489\Laravel\Pivot\Traits;
+namespace Istanbay\Laravel\Pivot\Traits;
 
 trait ExtendFireModelEventTrait
 {
@@ -31,7 +31,7 @@ trait ExtendFireModelEventTrait
             return false;
         }
 
-        $payload = ['model' => $this, 'relation' => $relationName, 'pivotIds' => $ids, 'pivotIdsAttributes' => $idsAttributes];
+        $payload = [$this, $relationName, $ids, $idsAttributes];
 
         return !empty($result) ? $result : static::$dispatcher->{$method}(
             "eloquent.{$event}: ".static::class, $payload
